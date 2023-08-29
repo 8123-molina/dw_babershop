@@ -1,0 +1,29 @@
+Roteiro App Barbershop
+
+1- Crie o projeto flutter como comando:
+	* flutter create --projetc-name nomeprojeto --org br.com,.nomeorganizacao --platforms <escolha as plataformas> ./nomeprojeto
+
+
+2- Abra o projeto em seu IDE e crie o arquivo laucher.json ( no VScode basta abrir o debug e clickar em create)
+
+3- Agora estarta o projeto.
+	* flutter run   ou de um play no vscode
+
+4- Neste projeto usaremos o Riverpod segue os comando para isntalação dos packages 
+ 	* flutter pub add flutter_riverpod
+	* flutter pub add riverpod_annotation
+	* flutter pub add dev:custom_lint
+	* flutter pub add dev:riverpod_lint
+	* flutter pub add dev:riverpod_generator
+	* flutter pub add dev:build_runner
+
+5- Configurando o Riverpod no run APP, para isso em run app envolva seu widget pelo ProviderScope ex:
+	* void main() {
+	    runApp(const ProviderScope(child: SeuApp()));
+	  }
+6- Instale package asyncstate
+	* flutter pub add asyncstate
+
+7- Comando para rodar o provider do riverpod e gerar os arquivos .g.dart, onde ele encontrar @Riverpod ele gerara uma class automatica
+	* dart run build_runner watch -d
+ 	
