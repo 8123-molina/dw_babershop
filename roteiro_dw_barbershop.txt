@@ -26,4 +26,7 @@ Roteiro App Barbershop
 
 7- Comando para rodar o provider do riverpod e gerar os arquivos .g.dart, onde ele encontrar @Riverpod ele gerara uma class automatica
 	* dart run build_runner watch -d
- 	
+
+8- package adicionados durante o desenvolvimentores
+	* SharedPreferences -Utilizado para armazenar dados persistentes.
+	* Validatorless --pUtilizado para validação de dados.
