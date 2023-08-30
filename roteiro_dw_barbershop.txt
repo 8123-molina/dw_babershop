@@ -29,4 +29,5 @@ Roteiro App Barbershop
 
 8- package adicionados durante o desenvolvimentores
 	* SharedPreferences -Utilizado para armazenar dados persistentes.
-	* Validatorless --pUtilizado para validação de dados.
+	* Validatorless --Utilizado para validação de dados.
+	* TopSnasckbarFlutter --Utilizado para estilizar os baloes messagens
