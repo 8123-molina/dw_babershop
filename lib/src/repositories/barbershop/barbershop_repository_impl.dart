@@ -7,12 +7,12 @@ import 'package:dw_barbershop/src/repositories/barbershop/barbershop_repository.
 import 'package:dw_barbershop/src/repositories/user/repository_exception.dart';
 
 class BarbershopRepositoryImpl implements BarbershopRepository {
-  @override
 
   final RestClient restClient;
 
   BarbershopRepositoryImpl({required this.restClient});
   
+  @override
   Future<Either<RepositoryException, BarbershopModel>> getMyBarbershop(UserModel userModel) async {
     switch(userModel){
       case UserModelADM():

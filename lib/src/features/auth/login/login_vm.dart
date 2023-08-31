@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:asyncstate/class/async_loader_handler.dart';
 import 'package:dw_barbershop/src/core/exceptions/service_exception.dart';
 import 'package:dw_barbershop/src/core/fp/either.dart';
@@ -18,7 +20,9 @@ class LoginVm extends _$LoginVm {
 
     final loginService = ref.watch(userLoginServiceProvider);
 
-    final result = await loginService.execute(email, password);
+    log(email + password);
+    final result =  await loginService.execute(email, password);
+    log(result.toString());
 
     switch (result) {
       case Success():

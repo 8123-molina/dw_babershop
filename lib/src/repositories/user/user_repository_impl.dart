@@ -24,12 +24,16 @@ class UserRepositoryImpl implements UserRepository {
         'password': password,
       });
 
-      return Success(data['access_token']);
+      return Success(data["access_token"]);
     } on DioException catch (e, s) {
-      final Response(:statusCode) = e.response!;
-      if (statusCode == HttpStatus.forbidden) {
-        log('Login ou senha invalidos', error: e, stackTrace: s);
-        return Failure(AuthUnauthorizedException());
+      if (e.response != null) {
+        final Response(:statusCode) = e.response!;
+
+        if (statusCode == HttpStatus.forbidden) {
+          log('Login ou senha invalidos', error: e, stackTrace: s);
+
+          return Failure(AuthUnauthorizedException());
+        }
       }
 
       log('Erro ao realizar login', error: e, stackTrace: s);
@@ -45,11 +49,11 @@ class UserRepositoryImpl implements UserRepository {
       return Success(UserModel.fromMap(data));
     } on DioException catch (e, s) {
       log('Erro ao buscar usuário logado', error: e, stackTrace: s);
-      return Failure(RepositoryException(message: 'Erro ao buscar usuário logado'));
-    } on ArgumentError catch(e, s) {
+      return Failure(
+          RepositoryException(message: 'Erro ao buscar usuário logado'));
+    } on ArgumentError catch (e, s) {
       log('Erro invalid Json', error: e, stackTrace: s);
       return Failure(RepositoryException(message: e.message));
-
     }
   }
 }
