@@ -6,7 +6,7 @@ import 'package:dw_barbershop/src/core/exceptions/auth_exception.dart';
 import 'package:dw_barbershop/src/core/fp/either.dart';
 import 'package:dw_barbershop/src/core/restClient/rest_client.dart';
 import 'package:dw_barbershop/src/model/user_model.dart';
-import 'package:dw_barbershop/src/repositories/user/repository_exception.dart';
+import 'package:dw_barbershop/src/core/exceptions/repository_exception.dart';
 
 import 'user_respository.dart';
 

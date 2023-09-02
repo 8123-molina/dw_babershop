@@ -22,7 +22,6 @@ class LoginVm extends _$LoginVm {
 
     log(email + password);
     final result =  await loginService.execute(email, password);
-    log(result.toString());
 
     switch (result) {
       case Success():
