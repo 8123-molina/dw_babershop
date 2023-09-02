@@ -1,7 +1,11 @@
+// import 'package:dotenv/dotenv.dart' as DotEnv;
 import 'package:dw_barbershop/src/features/barbershop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const ProviderScope(child: BarbershopApp()));
 }

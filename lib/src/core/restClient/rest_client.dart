@@ -1,14 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:dw_barbershop/src/core/constants/local_baseuri.dart';
 import 'package:dw_barbershop/src/core/restClient/interceptors/auth_interceptor.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final class RestClient extends DioForNative {
   RestClient()
       : super(
           BaseOptions(
-            baseUrl: UriApi.apiProd, // ip da minha maquina na rede
-            // baseUrl: 'http://192.168.18.6:3001', // ip da minha maquina na rede
+            baseUrl: dotenv.get("URL_API_DEV"), // ip da minha maquina na rede
             connectTimeout: const Duration(seconds: 10),
             receiveTimeout: const Duration(seconds: 60),
           ),
