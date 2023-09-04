@@ -21,6 +21,26 @@ sealed class BarbershopTheme {
         fontFamily: FontConstants.fontFamily
       )
     ),
+    switchTheme: SwitchThemeData(
+      trackOutlineColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return ColorsConstants.brow;
+      }),
+      trackColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return ColorsConstants.grey.withOpacity(.48);
+        }
+        return ColorsConstants.brow;
+      }),
+      thumbColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return ColorsConstants.brow.withOpacity(.48);
+        }
+        return ColorsConstants.white;
+      }),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,

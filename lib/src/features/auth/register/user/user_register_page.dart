@@ -1,6 +1,6 @@
 import 'package:dw_barbershop/src/core/ui/helpers/form_helper.dart';
 import 'package:dw_barbershop/src/core/ui/helpers/messages.dart';
-import 'package:dw_barbershop/src/features/auth/register/user_register_vm.dart';
+import 'package:dw_barbershop/src/features/auth/register/user/user_register_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:validatorless/validatorless.dart';
@@ -17,6 +17,8 @@ class _UserRegisterPageState extends ConsumerState<UserRegisterPage> {
   final nameEC = TextEditingController();
   final emailEC = TextEditingController();
   final passwordEC = TextEditingController();
+  bool typeRegisterAdm = false;
+  bool typeRegisterEmployee = false;
 
   @override
   void dispose() {
@@ -45,7 +47,6 @@ class _UserRegisterPageState extends ConsumerState<UserRegisterPage> {
           );
       }
     });
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Criar conta'),
@@ -105,21 +106,61 @@ class _UserRegisterPageState extends ConsumerState<UserRegisterPage> {
                   ),
                 ),
                 separator,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Switch.adaptive(
+                          value: typeRegisterAdm,
+                          onChanged: (checked) {
+                            setState(() {
+                              typeRegisterAdm = !typeRegisterAdm;
+                              if (typeRegisterAdm) {
+                                typeRegisterEmployee = !typeRegisterAdm;
+                              }
+                            });
+                          },
+                        ),
+                        const Text('Disponibilizar espaços'),
+                      ],
+                    ),
+                    separator,
+                    Column(
+                      children: [
+                        Switch.adaptive(
+                          value: typeRegisterEmployee,
+                          onChanged: (checked) {
+                            setState(() {
+                              typeRegisterEmployee = !typeRegisterEmployee;
+                              if (typeRegisterEmployee) {
+                                typeRegisterAdm = !typeRegisterEmployee;
+                              }
+                            });
+                          },
+                        ),
+                        const Text('Locar espaços'),
+                      ],
+                    ),
+                  ],
+                ),
+                separator,
                 ElevatedButton(
-                    onPressed: () {
-                      switch (formKey.currentState?.validate()) {
-                        case null || false:
-                          Messages.showError('Formulário inválido', context);
-                        case true:
-                          userRegisterVM.register(
-                              name: nameEC.text,
-                              email: emailEC.text,
-                              password: passwordEC.text);
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(56)),
-                    child: const Text('Criar Conta'))
+                  onPressed: () {
+                    switch (formKey.currentState?.validate()) {
+                      case null || false:
+                        Messages.showError('Formulário inválido', context);
+                      case true:
+                        userRegisterVM.register(
+                            name: nameEC.text,
+                            email: emailEC.text,
+                            password: passwordEC.text);
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(56)),
+                  child: const Text('Criar Conta'),
+                ),
               ],
             ),
           ),
