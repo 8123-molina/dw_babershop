@@ -1,6 +1,8 @@
 import 'package:asyncstate/widget/async_state_builder.dart';
 import 'package:dw_barbershop/src/core/ui/barbershop_theme.dart';
 import 'package:dw_barbershop/src/core/ui/widgets/barbershop_loader.dart';
+import 'package:dw_barbershop/src/core/ui/widgets/barbershop_nav_global_key.dart';
+import 'package:dw_barbershop/src/features/auth/register/user_register_page.dart';
 import 'package:flutter/material.dart';
 
 import 'auth/login/login_page.dart';
@@ -18,12 +20,14 @@ class BarbershopApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'DW Barbershop',
         theme: BarbershopTheme.themeData,
+        navigatorKey: BarbershopNavGlobalKey.instance.navKey,
         navigatorObservers: [asyncNavigatorObserver],
         routes: {
           '/': (_) => const SplashPage(),
           '/auth/login': (_) => const LoginPage(),
-              '/home/adm': (_) => const Text('ADM'),
-              '/home/employee': (_) => const Text('Employee'),
+          '/auth/register/user': (_) => const UserRegisterPage(),
+          '/home/adm': (_) => const Text('ADM'),
+          '/home/employee': (_) => const Text('Employee'),
         },        
       );
     });
