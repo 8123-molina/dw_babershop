@@ -1,7 +1,7 @@
 Roteiro App Barbershop
 
 1- Crie o projeto flutter como comando:
-	* flutter create --projetc-name nomeprojeto --org br.com,.nomeorganizacao --platforms <escolha as plataformas> ./nomeprojeto
+	* flutter create --project-name nomeprojeto --org br.com.nomeorganizacao --platforms <escolha as plataformas> ./nomeprojeto
 
 
 2- Abra o projeto em seu IDE e crie o arquivo laucher.json ( no VScode basta abrir o debug e clickar em create)
