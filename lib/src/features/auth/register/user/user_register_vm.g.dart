@@ -6,7 +6,7 @@ part of 'user_register_vm.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userRegisterVmHash() => r'27e570454fd3d968627b22ce02c39c338bad131e';
+String _$userRegisterVmHash() => r'f0d596e0e4c4332a382de342cb8a3f00164c1b80';
 
 /// See also [UserRegisterVm].
 @ProviderFor(UserRegisterVm)

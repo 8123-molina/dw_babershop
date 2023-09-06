@@ -37,6 +37,7 @@ Future<UserModel> getMe(GetMeRef ref) async {
 @Riverpod(keepAlive: true)
 BarbershopRepository barbershopRepository(BarbershopRepositoryRef ref) =>
     BarbershopRepositoryImpl(restClient: ref.watch(restClientProvider));
+    
 @Riverpod(keepAlive: true)
 Future<BarbershopModel> getMyBarbershop(GetMyBarbershopRef ref) async {
   final useModel = await ref.watch(getMeProvider.future);
